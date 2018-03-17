@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas标签</title>
+</head>
+<body>
+  <!-- width和height属性和css里面的不太一致 并且 宽度和高度是没有单位的 -->
+  <!-- canvas拥有两种大小 一个是标签元素显示的大小，一个是内联的画布大小，和像素点有关 -->
+  <canvas id="canvas" width="300" height="300">
+    当前浏览器不支持canvas，请更换浏览器
+  </canvas>
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    canvas.width = 1024;
+    canvas.height = 768;    //这样也可以指定canvas的大小
+    var content = canvas.getContext('2d'); //获取2d的上下文环境
+    console.log(content);
+  </script>
+</body>
+</html>

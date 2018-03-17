@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制直线、多边形</title>
+</head>
+<body>
+  <canvas id="canvas" width="300" height="300" style="border:1px solid #aaa;">
+    当前浏览器不支持canvas，请更换浏览器
+  </canvas>
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    canvas.width = 1024;
+    canvas.height = 768;    //这样也可以指定canvas的大小
+    var context = canvas.getContext('2d'); //获取2d的上下文环境
+
+
+    //canvas是一种基于状态的绘图 先设置状态 然后进行具体的绘制
+    context.beginPath();
+    context.moveTo(100,100);  //移动到点(状态)
+    context.lineTo(700,700);  //画一条直线（状态）    这两个都是绘制的状态
+    context.lineTo(100,700);  //画一条直线（状态）    这两个都是绘制的状态
+    context.lineTo(100,100);  //画一条直线（状态）    这两个都是绘制的状态
+    context.closePath();      //在路径绘制前后加上开始和结束 状态就不会被覆盖
+
+    context.lineWidth = 5;  //线条的宽度
+    context.strokeStyle = "red"  //线条的样纸 主要指颜色
+    context.stroke();        //进行具体的绘制 stroke是笔画的意思 绘制线条
+
+    // context.fillStyle = "rgb(2,100,30)";
+    // context.fill();      //fill表示填充 fill表示绘制填充
+    context.beginPath();
+    context.moveTo(200,100);
+    context.lineTo(400,400);
+    context.closePath();      //在路径绘制前后加上开始和结束 状态就不会被覆盖
+    context.strokeStyle = "black";
+    context.stroke();        //canvas是通过状态进行绘制的  所以没有使用beginPath()和closePath()状态下 canvas状态会被覆盖
+  </script>
+
+</body>
+</html>
